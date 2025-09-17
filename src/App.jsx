@@ -17,7 +17,7 @@ import './App.css'
 
 // Import pages
 import WorkoutDetail from './pages/WorkoutDetail.jsx'
-import Movements from './pages/Movements.jsx'
+import Movements from './pages/MovementsSimple.jsx'
 import Guides from './pages/Guides.jsx'
 import Blog from './pages/Blog.jsx'
 import Workouts from './pages/Workouts.jsx'
