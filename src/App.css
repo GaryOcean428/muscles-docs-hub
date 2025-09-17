@@ -1,0 +1,315 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Muscles AI Brand Colors - Exact match to main app */
+  --background: #0a0e1a;
+  --foreground: #f8f9fa;
+  --card: rgba(26, 31, 46, 0.8);
+  --card-foreground: #f8f9fa;
+  --popover: rgba(26, 31, 46, 0.95);
+  --popover-foreground: #f8f9fa;
+  --primary: #00cec9;
+  --primary-foreground: #0a0e1a;
+  --secondary: #a29bfe;
+  --secondary-foreground: #0a0e1a;
+  --muted: rgba(44, 52, 71, 0.6);
+  --muted-foreground: #adb5bd;
+  --accent: #00cec9;
+  --accent-foreground: #0a0e1a;
+  --destructive: #e17055;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #00cec9;
+  --chart-1: #00cec9;
+  --chart-2: #a29bfe;
+  --chart-3: #fdcb6e;
+  --chart-4: #ff7675;
+  --chart-5: #00b894;
+  --sidebar: rgba(26, 31, 46, 0.8);
+  --sidebar-foreground: #f8f9fa;
+  --sidebar-primary: #00cec9;
+  --sidebar-primary-foreground: #0a0e1a;
+  --sidebar-accent: rgba(44, 52, 71, 0.8);
+  --sidebar-accent-foreground: #f8f9fa;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #00cec9;
+}
+
+.dark {
+  /* Dark mode uses same colors as Muscles AI is inherently dark */
+  --background: #0a0e1a;
+  --foreground: #f8f9fa;
+  --card: rgba(26, 31, 46, 0.8);
+  --card-foreground: #f8f9fa;
+  --popover: rgba(26, 31, 46, 0.95);
+  --popover-foreground: #f8f9fa;
+  --primary: #00cec9;
+  --primary-foreground: #0a0e1a;
+  --secondary: #a29bfe;
+  --secondary-foreground: #0a0e1a;
+  --muted: rgba(44, 52, 71, 0.6);
+  --muted-foreground: #adb5bd;
+  --accent: #00cec9;
+  --accent-foreground: #0a0e1a;
+  --destructive: #e17055;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #00cec9;
+  --chart-1: #00cec9;
+  --chart-2: #a29bfe;
+  --chart-3: #fdcb6e;
+  --chart-4: #ff7675;
+  --chart-5: #00b894;
+  --sidebar: rgba(26, 31, 46, 0.8);
+  --sidebar-foreground: #f8f9fa;
+  --sidebar-primary: #00cec9;
+  --sidebar-primary-foreground: #0a0e1a;
+  --sidebar-accent: rgba(44, 52, 71, 0.8);
+  --sidebar-accent-foreground: #f8f9fa;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #00cec9;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.03)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Muscles AI Glassmorphism Styles */
+.muscles-gradient {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 50%, #2c3447 100%);
+  position: relative;
+}
+
+.muscles-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 206, 201, 0.1) 0%, rgba(162, 155, 254, 0.1) 100%);
+  pointer-events: none;
+}
+
+.muscles-glass-card {
+  background: rgba(26, 31, 46, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.muscles-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 206, 201, 0.15);
+  border-color: rgba(0, 206, 201, 0.3);
+}
+
+.muscles-glow {
+  box-shadow: 0 0 30px rgba(0, 206, 201, 0.2);
+}
+
+.muscles-text-glow {
+  background: linear-gradient(135deg, #00cec9, #a29bfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 206, 201, 0.3);
+}
+
+.muscles-border-glow {
+  border: 1px solid rgba(0, 206, 201, 0.3);
+  box-shadow: 0 0 20px rgba(0, 206, 201, 0.1);
+  transition: all 0.3s ease;
+}
+
+.muscles-border-glow:hover {
+  border-color: rgba(0, 206, 201, 0.6);
+  box-shadow: 0 0 30px rgba(0, 206, 201, 0.2);
+}
+
+.muscles-button {
+  background: linear-gradient(135deg, #00cec9, #a29bfe);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 206, 201, 0.3);
+}
+
+.muscles-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 206, 201, 0.4);
+}
+
+.muscles-button-outline {
+  background: transparent;
+  border: 2px solid #00cec9;
+  color: #00cec9;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.muscles-button-outline:hover {
+  background: #00cec9;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 206, 201, 0.3);
+}
+
+/* Feature card icons with gradients */
+.icon-purple {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.icon-blue {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.icon-green {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.icon-orange {
+  background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.icon-cyan {
+  background: linear-gradient(135deg, #00cec9, #55a3ff);
+}
+
+.icon-yellow {
+  background: linear-gradient(135deg, #fdcb6e, #e17055);
+}
+
+/* Video container styling */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(26, 31, 46, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0.75rem;
+}
+
+/* Animations */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 206, 201, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 206, 201, 0.4);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 31, 46, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00cec9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a29bfe;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #00cec9;
+  outline-offset: 2px;
+}
+
